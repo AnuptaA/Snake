@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Jacquard+12&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Jacquard 12", Helvetica, sans-serif;
+}
+
+body {
+    background-color: #4e9a11;
+}
+
+.title-cont {
+    padding-top: 1%;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: fit-content;
+    font-size: 60px;
+    color: #bffc4e;
+}
+
+.score-cont {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: fit-content;
+    font-size: 40px;
+    color: #bffc4e;
+    padding-bottom: 2%;
+}
+
+.canvas-cont {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 1%;
+}
+
+#snakeCanvas {
+    outline: 3px #bffc4e solid;
+}
+
+.canvas-cont {
+    padding-bottom: 1.5%;
+}
+
+.restart-cont {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: fit-content;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-bottom: 5%;
+}
+
+#restart-btn {
+    font-size: 20px;
+    font-family: "Open Sans";
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    padding: 2.5px 10px;
+    color: #4e9a11;
+    background-color: #bffc4e;
+    cursor: pointer;
+}
+
+#restart-btn:hover {
+    transition: all 0.3s ease 0s;
+    color: #e77500;
+}
