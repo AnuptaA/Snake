@@ -1,6 +1,7 @@
 canvas = document.getElementById("snakeCanvas");
 ctx = canvas.getContext("2d");
-html_score = document.getElementsByClassName("curr-score")[0];
+curr_score = document.getElementsByClassName("curr-score")[0];
+high_score = document.getElementsByClassName("high-score")[0];
 restart = document.getElementById("restart-btn");
 
 const dim = snakeCanvas.width;
@@ -80,7 +81,11 @@ function mod(m, n) {
 
 function updateScore() {
   score = snake.length;
-  html_score.textContent = score;
+  curr_score.textContent = score;
+  if (score > parseInt(high_score.textContent)) {
+    high_score.textContent = score;
+    localStorage.setItem("high_score", score);
+  }
 }
 
 function moveSnake() {
@@ -93,6 +98,13 @@ function moveSnake() {
     return;
   } else if (head.x == food.x && head.y == food.y) generateFood();
   else snake.pop();
+  remBlocks.push(snake[snake.length - 1]);
+
+  let idx = remBlocks.findIndex(
+    (block) => block.x == head.x && block.y == head.y
+  );
+  if (idx != -1) remBlocks.splice(idx, 1);
+
   snake.unshift(head);
 }
 
@@ -186,6 +198,15 @@ function main() {
   timeoutId = setTimeout(refresh, 100);
 }
 
+document.addEventListener("DOMContentLoaded", function () {
+  const storedHighScore = localStorage.getItem("high_score");
+  if (storedHighScore !== null) {
+    high_score.textContent = parseInt(storedHighScore);
+  } else {
+    high_score.textContent = 0;
+  }
+  high_score_element.textContent = score;
+});
 restart.addEventListener("click", restartGame);
 document.addEventListener("keydown", changeDir);
 snakeInit();

@@ -22,11 +22,12 @@ body {
 }
 
 .score-cont {
-    margin-left: auto;
-    margin-right: auto;
-    max-width: fit-content;
     font-size: 40px;
     color: #bffc4e;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 0 35%;
     padding-bottom: 2%;
 }
 
